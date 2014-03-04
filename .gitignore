@@ -13,6 +13,7 @@ build/
 !default.perspectivev3
 xcuserdata
 *.xccheckout
+*.xcuserstate
 profile
 *.moved-aside
 DerivedData
