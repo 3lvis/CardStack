@@ -7,6 +7,7 @@
 //
 
 #import "ANDYCardStackViewController.h"
+#import "ANDYCardStackView.h"
 
 @interface ANDYCardStackViewController ()
 
@@ -14,16 +15,16 @@
 
 @implementation ANDYCardStackViewController
 
+- (void)loadView
+{
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    ANDYCardStackView *view = [[ANDYCardStackView alloc] initWithFrame:bounds];
+    self.view = view;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
