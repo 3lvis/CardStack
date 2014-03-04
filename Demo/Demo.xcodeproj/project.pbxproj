@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		147767E518C697360086DCBA /* ANDYCardStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 147767E418C697360086DCBA /* ANDYCardStackView.m */; };
 		147CCFFC18C68C930062BD44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147CCFFB18C68C930062BD44 /* Foundation.framework */; };
 		147CCFFE18C68C930062BD44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147CCFFD18C68C930062BD44 /* CoreGraphics.framework */; };
 		147CD00018C68C930062BD44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147CCFFF18C68C930062BD44 /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		147767E318C697360086DCBA /* ANDYCardStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANDYCardStackView.h; sourceTree = "<group>"; };
+		147767E418C697360086DCBA /* ANDYCardStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDYCardStackView.m; sourceTree = "<group>"; };
 		147CCFF818C68C930062BD44 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147CCFFB18C68C930062BD44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		147CCFFD18C68C930062BD44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -164,6 +167,8 @@
 			children = (
 				147CD03518C68F8A0062BD44 /* ANDYCardStackViewController.h */,
 				147CD03618C68F8A0062BD44 /* ANDYCardStackViewController.m */,
+				147767E318C697360086DCBA /* ANDYCardStackView.h */,
+				147767E418C697360086DCBA /* ANDYCardStackView.m */,
 				147CD03818C68FBB0062BD44 /* ANDYCardView.h */,
 				147CD03918C68FBB0062BD44 /* ANDYCardView.m */,
 			);
@@ -268,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				147CD02D18C68CC00062BD44 /* ANDYAppDelegate.m in Sources */,
+				147767E518C697360086DCBA /* ANDYCardStackView.m in Sources */,
 				147CD00818C68C930062BD44 /* main.m in Sources */,
 				147CD03A18C68FBB0062BD44 /* ANDYCardView.m in Sources */,
 				147CD03718C68F8A0062BD44 /* ANDYCardStackViewController.m in Sources */,
