@@ -7,7 +7,6 @@
 //
 
 #import "ANDYCardStackViewController.h"
-#import "ANDYCardStackView.h"
 
 @interface ANDYCardStackViewController ()
 
@@ -17,14 +16,14 @@
 
 - (void)loadView
 {
-    CGRect bounds = [[UIScreen mainScreen] bounds];
+    /*CGRect bounds = [[UIScreen mainScreen] bounds];
     ANDYCardStackView *view = [[ANDYCardStackView alloc] initWithFrame:bounds];
-    self.view = view;
+    self.view = view;*/
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad];    
 }
 
 @end
