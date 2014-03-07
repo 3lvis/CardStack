@@ -7,18 +7,37 @@
 //
 
 #import "ANDYCardStackViewController.h"
+#import "ANDYCardStackDataSource.h"
+#import "ANDYCardStackLayout.h"
+#import "ANDYCardCell.h"
+
+static NSUInteger ANDYDefaultVisibleHeight = 60;
 
 @interface ANDYCardStackViewController ()
-
+@property (nonatomic, strong) ANDYCardStackDataSource *dataSource;
+@property (nonatomic, strong) ANDYCardStackLayout *layout;
 @end
 
 @implementation ANDYCardStackViewController
 
-- (void)loadView
+- (ANDYCardStackDataSource *)dataSource
 {
-    /*CGRect bounds = [[UIScreen mainScreen] bounds];
-    ANDYCardStackView *view = [[ANDYCardStackView alloc] initWithFrame:bounds];
-    self.view = view;*/
+    if (_dataSource) {
+        return _dataSource;
+    }
+    
+    _dataSource = [[ANDYCardStackDataSource alloc] init];
+    return _dataSource;
+}
+
+- (ANDYCardStackLayout *)layout
+{
+    if (_layout) {
+        return _layout;
+    }
+    
+    _layout = [[ANDYCardStackLayout alloc] init];
+    return _layout;
 }
 
 - (void)viewDidLoad

@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 ANDY. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface ANDYCardStackViewController : UIViewController
+@interface ANDYCardStackViewController : UICollectionViewController
 
 @end
