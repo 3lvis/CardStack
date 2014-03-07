@@ -20,6 +20,9 @@
 		147CD02118C68C930062BD44 /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 147CD02018C68C930062BD44 /* DemoTests.m */; };
 		147CD02D18C68CC00062BD44 /* ANDYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 147CD02C18C68CC00062BD44 /* ANDYAppDelegate.m */; };
 		147CD03718C68F8A0062BD44 /* ANDYCardStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147CD03618C68F8A0062BD44 /* ANDYCardStackViewController.m */; };
+		1484D7F318C7C277002FB775 /* ANDYCardStackDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484D7F218C7C277002FB775 /* ANDYCardStackDataSource.m */; };
+		1484D7F618C7C290002FB775 /* ANDYCardStackLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484D7F518C7C290002FB775 /* ANDYCardStackLayout.m */; };
+		1484D7F918C7C2BD002FB775 /* ANDYCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484D7F818C7C2BD002FB775 /* ANDYCardCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		147CD02C18C68CC00062BD44 /* ANDYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDYAppDelegate.m; sourceTree = "<group>"; };
 		147CD03518C68F8A0062BD44 /* ANDYCardStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANDYCardStackViewController.h; sourceTree = "<group>"; };
 		147CD03618C68F8A0062BD44 /* ANDYCardStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDYCardStackViewController.m; sourceTree = "<group>"; };
+		1484D7F118C7C277002FB775 /* ANDYCardStackDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANDYCardStackDataSource.h; sourceTree = "<group>"; };
+		1484D7F218C7C277002FB775 /* ANDYCardStackDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDYCardStackDataSource.m; sourceTree = "<group>"; };
+		1484D7F418C7C290002FB775 /* ANDYCardStackLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANDYCardStackLayout.h; sourceTree = "<group>"; };
+		1484D7F518C7C290002FB775 /* ANDYCardStackLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDYCardStackLayout.m; sourceTree = "<group>"; };
+		1484D7F718C7C2BD002FB775 /* ANDYCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANDYCardCell.h; sourceTree = "<group>"; };
+		1484D7F818C7C2BD002FB775 /* ANDYCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDYCardCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +170,12 @@
 			children = (
 				147CD03518C68F8A0062BD44 /* ANDYCardStackViewController.h */,
 				147CD03618C68F8A0062BD44 /* ANDYCardStackViewController.m */,
+				1484D7F118C7C277002FB775 /* ANDYCardStackDataSource.h */,
+				1484D7F218C7C277002FB775 /* ANDYCardStackDataSource.m */,
+				1484D7F418C7C290002FB775 /* ANDYCardStackLayout.h */,
+				1484D7F518C7C290002FB775 /* ANDYCardStackLayout.m */,
+				1484D7F718C7C2BD002FB775 /* ANDYCardCell.h */,
+				1484D7F818C7C2BD002FB775 /* ANDYCardCell.m */,
 			);
 			name = ANDYCardStack;
 			path = ../../ANDYCardStack;
@@ -262,9 +277,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1484D7F618C7C290002FB775 /* ANDYCardStackLayout.m in Sources */,
 				147CD02D18C68CC00062BD44 /* ANDYAppDelegate.m in Sources */,
 				147CD00818C68C930062BD44 /* main.m in Sources */,
+				1484D7F918C7C2BD002FB775 /* ANDYCardCell.m in Sources */,
 				147CD03718C68F8A0062BD44 /* ANDYCardStackViewController.m in Sources */,
+				1484D7F318C7C277002FB775 /* ANDYCardStackDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
