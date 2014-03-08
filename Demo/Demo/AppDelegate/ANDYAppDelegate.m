@@ -16,6 +16,7 @@ static NSUInteger ANDYDefaultVisibleHeight = 60;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
     ANDYCardStackLayout *layout = [[ANDYCardStackLayout alloc] init];
     CGRect bounds = [[UIScreen mainScreen] bounds];
     layout.actualCellHeight = CGRectGetHeight(bounds) - 120.0f;
