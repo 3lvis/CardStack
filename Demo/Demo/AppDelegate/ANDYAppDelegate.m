@@ -8,13 +8,19 @@
 
 #import "ANDYAppDelegate.h"
 #import "ANDYCardStackViewController.h"
+#import "ANDYCardStackLayout.h"
+static NSUInteger ANDYDefaultVisibleHeight = 60;
 
 @implementation ANDYAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    ANDYCardStackViewController *stackController = [[ANDYCardStackViewController alloc] init];
+    ANDYCardStackLayout *layout = [[ANDYCardStackLayout alloc] init];
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    layout.actualCellHeight = CGRectGetHeight(bounds) - 120.0f;
+    layout.visitableCellHeight = ANDYDefaultVisibleHeight;
+    ANDYCardStackViewController *stackController = [[ANDYCardStackViewController alloc] initWithCollectionViewLayout:layout];
     self.window.rootViewController = stackController;
     [self.window makeKeyAndVisible];
     return YES;

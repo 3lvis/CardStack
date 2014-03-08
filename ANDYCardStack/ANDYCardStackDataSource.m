@@ -76,13 +76,13 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 6;
+    return self.cards.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ANDYCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[ANDYCardCell reusedIdentifier] forIndexPath:indexPath];
-    cell.label.text = [NSString stringWithFormat:@"Card %d", indexPath.row];
+    cell.label.text = [NSString stringWithFormat:@"Card %ld", (long)indexPath.row];
     return cell;
 }
 
