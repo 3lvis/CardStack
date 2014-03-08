@@ -37,14 +37,12 @@
                                                     blue:arc4random_uniform(256)/255.f
                                                    alpha:1];
         cardView.layer.cornerRadius = 10;
-        cardView.layer.borderColor = [UIColor darkGrayColor].CGColor;
-        cardView.layer.borderWidth = 2;
         cardView.clipsToBounds = YES;
         [self.contentView addSubview:cardView];
         
         self.layer.shadowColor = [UIColor blackColor].CGColor;
         self.layer.shadowOffset = CGSizeMake(0, -2);
-        self.layer.shadowOpacity = .75;
+        self.layer.shadowOpacity = 0.5f;
         self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:10].CGPath;
         
         self.clipsToBounds = NO;
