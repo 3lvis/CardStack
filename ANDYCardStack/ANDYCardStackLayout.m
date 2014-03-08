@@ -85,7 +85,7 @@ static const CGFloat ANDYScaleFactor = 0.015f;
 
 - (CGRect)frameForIndexPath:(NSIndexPath *)indexPath withOffset:(NSUInteger)offset andHeight:(CGFloat)height
 {
-    return CGRectMake(0.0f, self.visitableCellHeight * offset, self.collectionView.bounds.size.width, height);
+    return CGRectMake(0.0f, self.visibleCellHeight * offset, self.collectionView.bounds.size.width, height);
 }
 
 @end

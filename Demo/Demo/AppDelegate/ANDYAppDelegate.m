@@ -20,7 +20,7 @@ static NSUInteger ANDYDefaultVisibleHeight = 60;
     ANDYCardStackLayout *layout = [[ANDYCardStackLayout alloc] init];
     CGRect bounds = [[UIScreen mainScreen] bounds];
     layout.actualCellHeight = CGRectGetHeight(bounds) - 120.0f;
-    layout.visitableCellHeight = ANDYDefaultVisibleHeight;
+    layout.visibleCellHeight = ANDYDefaultVisibleHeight;
     ANDYCardStackViewController *stackController = [[ANDYCardStackViewController alloc] initWithCollectionViewLayout:layout];
     self.window.rootViewController = stackController;
     [self.window makeKeyAndVisible];

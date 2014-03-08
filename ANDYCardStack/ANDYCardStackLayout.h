@@ -9,6 +9,6 @@
 @import UIKit;
 
 @interface ANDYCardStackLayout : UICollectionViewLayout
-@property (nonatomic) NSUInteger visitableCellHeight;
+@property (nonatomic) NSUInteger visibleCellHeight;
 @property (nonatomic) NSUInteger actualCellHeight;
 @end
