@@ -8,12 +8,14 @@
 
 #import "ANDYCardStackViewController.h"
 #import "ANDYCardStackDataSource.h"
+#import "ANDYCardStackDelegate.h"
 #import "ANDYCardStackLayout.h"
 #import "ANDYCardCell.h"
 
 @interface ANDYCardStackViewController ()
 @property (nonatomic, strong) ANDYCardStackDataSource *dataSource;
 @property (nonatomic, strong) ANDYCardStackLayout *layout;
+@property (nonatomic, strong) ANDYCardStackDelegate *delegate;
 @end
 
 @implementation ANDYCardStackViewController
@@ -37,20 +39,22 @@
     return _dataSource;
 }
 
+- (ANDYCardStackDelegate *)delegate
+{
+    if (_delegate) {
+        return _delegate;
+    }
+
+    _delegate = [[ANDYCardStackDelegate alloc] initWithCollectionView:self.collectionView];
+    return _delegate;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.collectionView.dataSource = self.dataSource;
+    self.collectionView.delegate = self.delegate;
     [self.collectionView registerClass:[ANDYCardCell class] forCellWithReuseIdentifier:[ANDYCardCell reusedIdentifier]];
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self.collectionView performBatchUpdates:^{
-        [self.dataSource selectCardAtIndexPath:indexPath];
-    } completion:nil];
-    
-    [self.layout invalidateLayout];
 }
 
 @end

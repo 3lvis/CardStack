@@ -17,5 +17,6 @@ typedef NS_ENUM(NSInteger, ANDYCardState) {
 
 @interface ANDYCardStackDataSource : NSObject <UICollectionViewDataSource>
 - (ANDYCardState)cardStateAtIndexPath:(NSIndexPath *)indexPath;
-- (void)selectCardAtIndexPath:(NSIndexPath *)indexPath;
+- (void)expandRows;
+- (void)collapseRows:(NSUInteger)selectedRow;
 @end

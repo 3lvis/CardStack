@@ -38,19 +38,21 @@
     return [cardState intValue];
 }
 
-- (void)selectCardAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    ANDYCardState cardState = [self cardStateAtIndexPath:indexPath];
-    switch (cardState) {
-        case ANDYCardStateNormal:
-            [self collapseRows:indexPath.row];
-            break;
-        case ANDYCardStateSelected:
-        case ANDYCardStateCollapsed:
-            [self expandRows];
-        default:
-            break;
-    }
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.cards.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ANDYCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[ANDYCardCell reusedIdentifier] forIndexPath:indexPath];
+    cell.label.text = [NSString stringWithFormat:@"Card %ld", (long)indexPath.row];
+    return cell;
 }
 
 - (void)expandRows
@@ -67,23 +69,6 @@
             self.cards[index] = @(ANDYCardStateCollapsed);
         }
     }
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return self.cards.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    ANDYCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[ANDYCardCell reusedIdentifier] forIndexPath:indexPath];
-    cell.label.text = [NSString stringWithFormat:@"Card %ld", (long)indexPath.row];
-    return cell;
 }
 
 @end
