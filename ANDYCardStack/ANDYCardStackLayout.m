@@ -7,7 +7,7 @@
 //
 
 #import "ANDYCardStackLayout.h"
-#import "ANDYCardStackDataSource.h"
+#import "ANDYCardCell.h"
 
 static const NSUInteger ANDYBelowCellOffset = 45;
 static const NSUInteger ANDYBelowCellHeight = 7;
@@ -17,6 +17,10 @@ static const CGFloat ANDYScaleFactor = 0.015f;
 
 - (CGSize)collectionViewContentSize
 {
+    /*NSInteger numItems = [self.collectionView numberOfItemsInSection:0];
+    CGFloat height = (numItems > 1) ? (numItems - 1) * self.visibleCellHeight + self.actualCellHeight : self.collectionView.bounds.size.height;
+    CGSize size = CGSizeMake(self.collectionView.bounds.size.width, height);
+    return size;*/
     return self.collectionView.bounds.size;
 }
 
@@ -41,8 +45,7 @@ static const CGFloat ANDYScaleFactor = 0.015f;
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)attributes
 {
-    ANDYCardStackDataSource *dataSource = self.collectionView.dataSource;
-    ANDYCardState cardState = [dataSource cardStateAtIndexPath:attributes.indexPath];
+    ANDYCardState cardState = [self.dataSource cardStateAtIndexPath:attributes.indexPath];
     
     switch (cardState) {
         case ANDYCardStateNormal: {

@@ -7,15 +7,12 @@
 //
 
 #import "ANDYCardStackViewController.h"
-#import "ANDYCardStackDataSource.h"
-#import "ANDYCardStackDelegate.h"
 #import "ANDYCardStackLayout.h"
 #import "ANDYCardCell.h"
 
-@interface ANDYCardStackViewController ()
-@property (nonatomic, strong) ANDYCardStackDataSource *dataSource;
+@interface ANDYCardStackViewController () <ANDYCardCellDelegate, ANDYCardStackLayoutDataSource>
 @property (nonatomic, strong) ANDYCardStackLayout *layout;
-@property (nonatomic, strong) ANDYCardStackDelegate *delegate;
+@property (nonatomic, strong) NSMutableArray *cards;
 @end
 
 @implementation ANDYCardStackViewController
@@ -25,36 +22,106 @@
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         _layout = layout;
+        _layout.dataSource = self;
     }
     return self;
-}
-
-- (ANDYCardStackDataSource *)dataSource
-{
-    if (_dataSource) {
-        return _dataSource;
-    }
-    
-    _dataSource = [[ANDYCardStackDataSource alloc] init];
-    return _dataSource;
-}
-
-- (ANDYCardStackDelegate *)delegate
-{
-    if (_delegate) {
-        return _delegate;
-    }
-
-    _delegate = [[ANDYCardStackDelegate alloc] initWithCollectionView:self.collectionView];
-    return _delegate;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.collectionView.dataSource = self.dataSource;
-    self.collectionView.delegate = self.delegate;
     [self.collectionView registerClass:[ANDYCardCell class] forCellWithReuseIdentifier:[ANDYCardCell reusedIdentifier]];
+}
+
+- (NSMutableArray *)cards
+{
+    if (_cards) {
+        return _cards;
+    }
+    
+    _cards = [[NSMutableArray alloc] initWithArray:
+              @[ @(ANDYCardStateNormal),
+                 @(ANDYCardStateNormal),
+                 @(ANDYCardStateNormal),
+                 @(ANDYCardStateNormal),
+                 @(ANDYCardStateNormal),
+                 @(ANDYCardStateNormal)]];
+    return _cards;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.cards.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ANDYCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[ANDYCardCell reusedIdentifier] forIndexPath:indexPath];
+    cell.label.text = [NSString stringWithFormat:@"Card %ld", (long)indexPath.row];
+    cell.delegate = self;
+    cell.indexPath = indexPath;
+    return cell;
+}
+
+- (void)expandRows
+{
+    self.cards = nil;
+}
+
+- (void)collapseRows:(NSUInteger)selectedRow
+{
+    for (NSUInteger index = 0; index < self.cards.count; index++) {
+        if (index == selectedRow) {
+            self.cards[index] = @(ANDYCardStateSelected);
+        } else {
+            self.cards[index] = @(ANDYCardStateCollapsed);
+        }
+    }
+}
+
+- (void)cardCellDidPan:(ANDYCardCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    [self animateSelectionAtIndexPath:indexPath];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self animateSelectionAtIndexPath:indexPath];
+}
+
+- (void)animateSelectionAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.collectionView performBatchUpdates:^{
+        [self selectCardAtIndexPath:indexPath];
+    } completion:nil];
+    
+    
+    ANDYCardStackLayout *layout = (ANDYCardStackLayout *)self.collectionView.collectionViewLayout;
+    [layout invalidateLayout];
+}
+
+- (void)selectCardAtIndexPath:(NSIndexPath *)indexPath
+{
+    ANDYCardState cardState = [self cardStateAtIndexPath:indexPath];
+    
+    switch (cardState) {
+        case ANDYCardStateNormal:
+            [self collapseRows:indexPath.row];
+            break;
+        case ANDYCardStateSelected:
+        case ANDYCardStateCollapsed:
+            [self expandRows];
+        default:
+            break;
+    }
+}
+
+#pragma mark - ANDYCardStackLayoutDataSource
+
+- (ANDYCardState)cardStateAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSNumber *cardState = self.cards[indexPath.row];
+    return [cardState intValue];
 }
 
 @end

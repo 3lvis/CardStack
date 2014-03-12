@@ -48,6 +48,10 @@
         self.clipsToBounds = NO;
         
         [self.contentView addSubview:self.label];
+        
+        UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panning:)];
+        [self addGestureRecognizer:gestureRecognizer];
+
     }
     return self;
 }
@@ -55,6 +59,20 @@
 + (NSString *)reusedIdentifier
 {
     return @"PassbookCellId";
+}
+
+- (void)panning:(UIPanGestureRecognizer *)recognizer
+{
+    CGPoint translation = [recognizer translationInView:self];
+    recognizer.view.center = CGPointMake(recognizer.view.center.x,
+                                         recognizer.view.center.y + translation.y);
+    [recognizer setTranslation:CGPointMake(0, 0) inView:self];
+    
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        if ([self.delegate respondsToSelector:@selector(cardCellDidPan:atIndexPath:)]) {
+            [self.delegate cardCellDidPan:self atIndexPath:self.indexPath];
+        }
+    }
 }
 
 @end
