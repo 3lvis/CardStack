@@ -10,14 +10,7 @@
 
 @protocol ANDYCardCellDelegate;
 
-typedef NS_ENUM(NSInteger, ANDYCardState) {
-    ANDYCardStateNormal,
-    ANDYCardStateSelected,
-    ANDYCardStateCollapsed
-};
-
 @interface ANDYCardCell : UICollectionViewCell
-@property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, weak) id <ANDYCardCellDelegate> delegate;
 + (NSString *)reusedIdentifier;

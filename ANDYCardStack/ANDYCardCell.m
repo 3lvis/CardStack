@@ -13,20 +13,6 @@
 
 @implementation ANDYCardCell
 
-- (UILabel *)label
-{
-    if (_label) {
-        return _label;
-    }
-    
-    _label = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, CGRectGetWidth(self.contentView.frame), 60)];
-    _label.textAlignment = NSTextAlignmentLeft;
-    _label.font = [UIFont fontWithName:@"Avenir-Medium" size:42];
-    _label.textColor = [UIColor whiteColor];
-    _label.backgroundColor = [UIColor clearColor];
-    return _label;
-}
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(frame), CGRectGetHeight(frame))];
@@ -46,9 +32,7 @@
         self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:10].CGPath;
         
         self.clipsToBounds = NO;
-        
-        [self.contentView addSubview:self.label];
-        
+
         UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panning:)];
         [self addGestureRecognizer:gestureRecognizer];
 
@@ -58,7 +42,7 @@
 
 + (NSString *)reusedIdentifier
 {
-    return @"PassbookCellId";
+    return @"ANDYPassbookCellID";
 }
 
 - (void)panning:(UIPanGestureRecognizer *)recognizer

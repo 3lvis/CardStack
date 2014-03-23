@@ -9,6 +9,8 @@
 @import UIKit;
 
 #import "ANDYCardCell.h"
+#import "ANDYCardStackViewController.h"
+
 @protocol ANDYCardStackLayoutDataSource;
 
 @interface ANDYCardStackLayout : UICollectionViewLayout

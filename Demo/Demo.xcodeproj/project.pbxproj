@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1415E1CC18DEFBD3007360B5 /* ANDYMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1415E1CB18DEFBD3007360B5 /* ANDYMainViewController.m */; };
 		147CCFFC18C68C930062BD44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147CCFFB18C68C930062BD44 /* Foundation.framework */; };
 		147CCFFE18C68C930062BD44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147CCFFD18C68C930062BD44 /* CoreGraphics.framework */; };
 		147CD00018C68C930062BD44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147CCFFF18C68C930062BD44 /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1415E1CA18DEFBD3007360B5 /* ANDYMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANDYMainViewController.h; sourceTree = "<group>"; };
+		1415E1CB18DEFBD3007360B5 /* ANDYMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDYMainViewController.m; sourceTree = "<group>"; };
 		147CCFF818C68C930062BD44 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147CCFFB18C68C930062BD44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		147CCFFD18C68C930062BD44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,9 +86,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1415E1C918DEFBD3007360B5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1415E1CA18DEFBD3007360B5 /* ANDYMainViewController.h */,
+				1415E1CB18DEFBD3007360B5 /* ANDYMainViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		147CCFEF18C68C930062BD44 = {
 			isa = PBXGroup;
 			children = (
+				147CD03418C68F8A0062BD44 /* ANDYCardStack */,
 				147CD00118C68C930062BD44 /* Demo */,
 				147CD01A18C68C930062BD44 /* DemoTests */,
 				147CCFFA18C68C930062BD44 /* Frameworks */,
@@ -116,8 +129,8 @@
 		147CD00118C68C930062BD44 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				147CD03418C68F8A0062BD44 /* ANDYCardStack */,
 				147CD02A18C68CC00062BD44 /* AppDelegate */,
+				1415E1C918DEFBD3007360B5 /* Classes */,
 				147CD00218C68C930062BD44 /* Supporting Files */,
 			);
 			path = Demo;
@@ -173,7 +186,7 @@
 				1484D7F818C7C2BD002FB775 /* ANDYCardCell.m */,
 			);
 			name = ANDYCardStack;
-			path = ../../ANDYCardStack;
+			path = ../ANDYCardStack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +287,7 @@
 			files = (
 				1484D7F618C7C290002FB775 /* ANDYCardStackLayout.m in Sources */,
 				147CD02D18C68CC00062BD44 /* ANDYAppDelegate.m in Sources */,
+				1415E1CC18DEFBD3007360B5 /* ANDYMainViewController.m in Sources */,
 				147CD00818C68C930062BD44 /* main.m in Sources */,
 				1484D7F918C7C2BD002FB775 /* ANDYCardCell.m in Sources */,
 				147CD03718C68F8A0062BD44 /* ANDYCardStackViewController.m in Sources */,

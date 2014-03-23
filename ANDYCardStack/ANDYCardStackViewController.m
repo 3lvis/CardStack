@@ -12,7 +12,6 @@
 
 @interface ANDYCardStackViewController () <ANDYCardCellDelegate, ANDYCardStackLayoutDataSource>
 @property (nonatomic, strong) ANDYCardStackLayout *layout;
-@property (nonatomic, strong) NSMutableArray *cards;
 @end
 
 @implementation ANDYCardStackViewController
@@ -33,31 +32,14 @@
     [self.collectionView registerClass:[ANDYCardCell class] forCellWithReuseIdentifier:[ANDYCardCell reusedIdentifier]];
 }
 
-- (NSMutableArray *)cards
-{
-    if (_cards) {
-        return _cards;
-    }
-    
-    _cards = [[NSMutableArray alloc] initWithArray:
-              @[ @(ANDYCardStateNormal),
-                 @(ANDYCardStateNormal),
-                 @(ANDYCardStateNormal),
-                 @(ANDYCardStateNormal),
-                 @(ANDYCardStateNormal),
-                 @(ANDYCardStateNormal)]];
-    return _cards;
-}
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.cards.count;
+    return [[self.dataSource objects] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ANDYCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[ANDYCardCell reusedIdentifier] forIndexPath:indexPath];
-    cell.label.text = [NSString stringWithFormat:@"Card %ld", (long)indexPath.row];
     cell.delegate = self;
     cell.indexPath = indexPath;
     return cell;
@@ -65,16 +47,18 @@
 
 - (void)expandRows
 {
-    self.cards = nil;
+    [self.dataSource clearObjects];
 }
 
 - (void)collapseRows:(NSUInteger)selectedRow
 {
-    for (NSUInteger index = 0; index < self.cards.count; index++) {
+    NSUInteger count = [[self.dataSource objects] count];
+    NSMutableArray *cards = [self.dataSource objects];
+    for (NSUInteger index = 0; index < count; index++) {
         if (index == selectedRow) {
-            self.cards[index] = @(ANDYCardStateSelected);
+            cards[index] = @(ANDYCardStateSelected);
         } else {
-            self.cards[index] = @(ANDYCardStateCollapsed);
+            cards[index] = @(ANDYCardStateCollapsed);
         }
     }
 }
@@ -87,6 +71,10 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [self animateSelectionAtIndexPath:indexPath];
+
+    if ([self.delegate respondsToSelector:@selector(cardStackController:didSelectItemAtIndexPath:)]) {
+        [self.delegate cardStackController:self didSelectItemAtIndexPath:indexPath];
+    }
 }
 
 - (void)animateSelectionAtIndexPath:(NSIndexPath *)indexPath
@@ -120,7 +108,8 @@
 
 - (ANDYCardState)cardStateAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSNumber *cardState = self.cards[indexPath.row];
+    NSMutableArray *cards = [self.dataSource objects];
+    NSNumber *cardState = cards[indexPath.row];
     return [cardState intValue];
 }
 
