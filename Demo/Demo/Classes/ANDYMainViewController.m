@@ -8,17 +8,18 @@
 
 #import "ANDYMainViewController.h"
 
-@interface ANDYMainViewController () <ANDYCardStackViewControllerDataSource, ANDYCardStackViewControllerDelegate>
+@interface ANDYMainViewController () <ANDYCardStackViewControllerDataSource,
+ANDYCardStackViewControllerDelegate>
+
 @property (nonatomic, strong) NSMutableArray *cards;
+
 @end
 
 @implementation ANDYMainViewController
 
 - (NSMutableArray *)cards
 {
-    if (_cards) {
-        return _cards;
-    }
+    if (_cards) return _cards;
 
     _cards = [[NSMutableArray alloc] initWithArray:
               @[ @(ANDYCardStateNormal),
@@ -27,7 +28,7 @@
                  @(ANDYCardStateNormal),
                  @(ANDYCardStateNormal),
                  @(ANDYCardStateNormal)]];
-    
+
     return _cards;
 }
 

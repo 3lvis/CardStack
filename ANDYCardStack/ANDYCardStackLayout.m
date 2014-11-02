@@ -17,17 +17,13 @@ static const CGFloat ANDYScaleFactor = 0.015f;
 
 - (CGSize)collectionViewContentSize
 {
-    /*NSInteger numItems = [self.collectionView numberOfItemsInSection:0];
-    CGFloat height = (numItems > 1) ? (numItems - 1) * self.visibleCellHeight + self.actualCellHeight : self.collectionView.bounds.size.height;
-    CGSize size = CGSizeMake(self.collectionView.bounds.size.width, height);
-    return size;*/
     return self.collectionView.bounds.size;
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     NSMutableArray *layoutAttributes = [NSMutableArray array];
-    
+
     NSArray *visibleIndexPaths = [self indexPathOfItemsInRect:rect];
     for (NSIndexPath *indexPath in visibleIndexPaths) {
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
@@ -40,19 +36,23 @@ static const CGFloat ANDYScaleFactor = 0.015f;
 {
     UICollectionViewLayoutAttributes *layoutAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     [self applyLayoutAttributes:layoutAttributes];
+
     return layoutAttributes;
 }
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)attributes
 {
     ANDYCardState cardState = [self.dataSource cardStateAtIndexPath:attributes.indexPath];
-    
+
     switch (cardState) {
         case ANDYCardStateNormal: {
-            attributes.frame = [self frameForIndexPath:attributes.indexPath withOffset:attributes.indexPath.row andHeight:self.actualCellHeight];
+            attributes.frame = [self frameForIndexPath:attributes.indexPath
+                                            withOffset:attributes.indexPath.row
+                                             andHeight:self.actualCellHeight];
         } break;
         case ANDYCardStateSelected: {
-            attributes.frame = [self frameForIndexPath:attributes.indexPath withOffset:0 andHeight:self.actualCellHeight];
+            attributes.frame = [self frameForIndexPath:attributes.indexPath withOffset:0
+                                             andHeight:self.actualCellHeight];
         } break;
         case ANDYCardStateCollapsed: {
             [self applyCollapsedAttributes:attributes];
@@ -64,7 +64,8 @@ static const CGFloat ANDYScaleFactor = 0.015f;
 - (void)applyCollapsedAttributes:(UICollectionViewLayoutAttributes *)attributes
 {
     NSIndexPath *indexPath = attributes.indexPath;
-    NSUInteger rowCount = [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:indexPath.section];
+    NSUInteger rowCount = [self.collectionView.dataSource collectionView:self.collectionView
+                                                  numberOfItemsInSection:indexPath.section];
     attributes.frame = [self frameForIndexPath:indexPath withOffset:indexPath.row andHeight:50.0f];
     CATransform3D transform = attributes.transform3D;
     CGFloat yTarget = CGRectGetHeight(self.collectionView.bounds) - ANDYBelowCellOffset + (ANDYBelowCellHeight * indexPath.row);
@@ -78,11 +79,13 @@ static const CGFloat ANDYScaleFactor = 0.015f;
 {
     NSMutableArray *indexPaths = [NSMutableArray array];
     NSUInteger sections = [self.collectionView numberOfSections];
+
     for (NSUInteger section = 0; section < sections; section++) {
         for (NSUInteger row = 0; row < [self.collectionView numberOfItemsInSection:section]; row++) {
             [indexPaths addObject:[NSIndexPath indexPathForItem:row inSection:section]];
         }
     }
+
     return indexPaths;
 }
 
