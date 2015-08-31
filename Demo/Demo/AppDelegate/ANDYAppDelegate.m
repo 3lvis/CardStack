@@ -1,11 +1,3 @@
-//
-//  ANDYAppDelegate.m
-//  Demo
-//
-//  Created by Elvis Nunez on 3/4/14.
-//  Copyright (c) 2014 ANDY. All rights reserved.
-//
-
 #import "ANDYAppDelegate.h"
 #import "ANDYMainViewController.h"
 #import "ANDYCardStackLayout.h"
@@ -14,8 +6,7 @@ static NSUInteger ANDYDefaultVisibleHeight = 60;
 
 @implementation ANDYAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     ANDYCardStackLayout *layout = [[ANDYCardStackLayout alloc] init];

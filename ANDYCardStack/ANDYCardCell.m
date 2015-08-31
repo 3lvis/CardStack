@@ -5,8 +5,7 @@
 
 @implementation ANDYCardCell
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(frame), CGRectGetHeight(frame))];
     if (!self) return nil;
 
@@ -32,13 +31,11 @@
     return self;
 }
 
-+ (NSString *)reusedIdentifier
-{
++ (NSString *)reusedIdentifier {
     return @"ANDYPassbookCellID";
 }
 
-- (void)panning:(UIPanGestureRecognizer *)recognizer
-{
+- (void)panning:(UIPanGestureRecognizer *)recognizer {
     CGPoint translation = [recognizer translationInView:self];
     recognizer.view.center = CGPointMake(recognizer.view.center.x,
                                          recognizer.view.center.y + translation.y);

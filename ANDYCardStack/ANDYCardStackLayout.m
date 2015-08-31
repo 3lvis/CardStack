@@ -7,13 +7,11 @@ static const CGFloat ANDYScaleFactor = 0.015f;
 
 @implementation ANDYCardStackLayout
 
-- (CGSize)collectionViewContentSize
-{
+- (CGSize)collectionViewContentSize {
     return self.collectionView.bounds.size;
 }
 
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
-{
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSMutableArray *layoutAttributes = [NSMutableArray array];
 
     NSArray *visibleIndexPaths = [self indexPathOfItemsInRect:rect];
@@ -24,16 +22,14 @@ static const CGFloat ANDYScaleFactor = 0.015f;
     return layoutAttributes;
 }
 
-- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewLayoutAttributes *layoutAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     [self applyLayoutAttributes:layoutAttributes];
 
     return layoutAttributes;
 }
 
-- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)attributes
-{
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)attributes {
     ANDYCardState cardState = [self.dataSource cardStateAtIndexPath:attributes.indexPath];
 
     switch (cardState) {
@@ -53,8 +49,7 @@ static const CGFloat ANDYScaleFactor = 0.015f;
     }
 }
 
-- (void)applyCollapsedAttributes:(UICollectionViewLayoutAttributes *)attributes
-{
+- (void)applyCollapsedAttributes:(UICollectionViewLayoutAttributes *)attributes {
     NSIndexPath *indexPath = attributes.indexPath;
     NSUInteger rowCount = [self.collectionView.dataSource collectionView:self.collectionView
                                                   numberOfItemsInSection:indexPath.section];
@@ -67,8 +62,7 @@ static const CGFloat ANDYScaleFactor = 0.015f;
     attributes.transform3D = transform;
 }
 
-- (NSArray *)indexPathOfItemsInRect:(CGRect)rect
-{
+- (NSArray *)indexPathOfItemsInRect:(CGRect)rect {
     NSMutableArray *indexPaths = [NSMutableArray array];
     NSUInteger sections = [self.collectionView numberOfSections];
 
@@ -81,8 +75,7 @@ static const CGFloat ANDYScaleFactor = 0.015f;
     return indexPaths;
 }
 
-- (CGRect)frameForIndexPath:(NSIndexPath *)indexPath withOffset:(NSUInteger)offset andHeight:(CGFloat)height
-{
+- (CGRect)frameForIndexPath:(NSIndexPath *)indexPath withOffset:(NSUInteger)offset andHeight:(CGFloat)height {
     return CGRectMake(0.0f, self.visibleCellHeight * offset, self.collectionView.bounds.size.width, height);
 }
 
