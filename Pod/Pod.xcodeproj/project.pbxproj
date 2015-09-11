@@ -10,7 +10,10 @@
 		142A42281B2312B600AFE37D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A42271B2312B600AFE37D /* AppDelegate.swift */; };
 		142A422A1B2312B600AFE37D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142A42291B2312B600AFE37D /* Images.xcassets */; };
 		142A422D1B2312B600AFE37D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A422B1B2312B600AFE37D /* LaunchScreen.xib */; };
-		14A139B41AEFC72B00AD732F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A139B31AEFC72B00AD732F /* Tests.swift */; };
+		14B724FE1B97AA6C008F89F7 /* CardStackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B724FD1B97AA6C008F89F7 /* CardStackController.swift */; };
+		14B725001B97AA86008F89F7 /* CardStackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B724FF1B97AA86008F89F7 /* CardStackLayout.swift */; };
+		14B725021B97AA8E008F89F7 /* CardStackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B725011B97AA8E008F89F7 /* CardStackCell.swift */; };
+		14B725041B97AAA0008F89F7 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B725031B97AAA0008F89F7 /* RootController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,26 +22,18 @@
 		142A42271B2312B600AFE37D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		142A42291B2312B600AFE37D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		142A422C1B2312B600AFE37D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		146D72AC1AB782920058798C /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		146D72B11AB782920058798C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14A139B21AEFC72B00AD732F /* Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Bridging-Header.h"; sourceTree = "<group>"; };
-		14A139B31AEFC72B00AD732F /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		14B724FD1B97AA6C008F89F7 /* CardStackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackController.swift; sourceTree = "<group>"; };
+		14B724FF1B97AA86008F89F7 /* CardStackLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackLayout.swift; sourceTree = "<group>"; };
+		14B725011B97AA8E008F89F7 /* CardStackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackCell.swift; sourceTree = "<group>"; };
+		14B725031B97AAA0008F89F7 /* RootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
 		14C136511AB784B200B7B07A /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		14C136521AB784B200B7B07A /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
 		14C136541AB784B200B7B07A /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		14C136551AB784B200B7B07A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		14C1365C1AB784BC00B7B07A /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		142A42201B2312B600AFE37D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		146D72A91AB782920058798C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -52,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				142A42271B2312B600AFE37D /* AppDelegate.swift */,
+				14B725031B97AAA0008F89F7 /* RootController.swift */,
 				142A42291B2312B600AFE37D /* Images.xcassets */,
 				142A422B1B2312B600AFE37D /* LaunchScreen.xib */,
 				142A42251B2312B600AFE37D /* Supporting Files */,
@@ -73,7 +69,6 @@
 				14C136501AB7849300B7B07A /* Metadata */,
 				14C1365B1AB784BC00B7B07A /* Source */,
 				142A42241B2312B600AFE37D /* App */,
-				146D72AF1AB782920058798C /* Tests */,
 				146D72941AB782920058798C /* Products */,
 			);
 			indentWidth = 4;
@@ -83,28 +78,9 @@
 		146D72941AB782920058798C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				146D72AC1AB782920058798C /* Tests.xctest */,
 				142A42231B2312B600AFE37D /* App.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		146D72AF1AB782920058798C /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				14A139B21AEFC72B00AD732F /* Tests-Bridging-Header.h */,
-				14A139B31AEFC72B00AD732F /* Tests.swift */,
-				146D72B01AB782920058798C /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		146D72B01AB782920058798C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				146D72B11AB782920058798C /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		14C136501AB7849300B7B07A /* Metadata */ = {
@@ -121,7 +97,9 @@
 		14C1365B1AB784BC00B7B07A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				14C1365C1AB784BC00B7B07A /* .gitkeep */,
+				14B724FD1B97AA6C008F89F7 /* CardStackController.swift */,
+				14B724FF1B97AA86008F89F7 /* CardStackLayout.swift */,
+				14B725011B97AA8E008F89F7 /* CardStackCell.swift */,
 			);
 			name = Source;
 			path = ../Source;
@@ -147,23 +125,6 @@
 			productReference = 142A42231B2312B600AFE37D /* App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		146D72AB1AB782920058798C /* Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 146D72B91AB782920058798C /* Build configuration list for PBXNativeTarget "Tests" */;
-			buildPhases = (
-				146D72A81AB782920058798C /* Sources */,
-				146D72A91AB782920058798C /* Frameworks */,
-				146D72AA1AB782920058798C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Tests;
-			productName = PodTests;
-			productReference = 146D72AC1AB782920058798C /* Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -176,9 +137,6 @@
 				TargetAttributes = {
 					142A42221B2312B600AFE37D = {
 						CreatedOnToolsVersion = 6.3.2;
-					};
-					146D72AB1AB782920058798C = {
-						CreatedOnToolsVersion = 6.2;
 					};
 				};
 			};
@@ -196,7 +154,6 @@
 			projectRoot = "";
 			targets = (
 				142A42221B2312B600AFE37D /* App */,
-				146D72AB1AB782920058798C /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -211,13 +168,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		146D72AA1AB782920058798C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -225,15 +175,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B725041B97AAA0008F89F7 /* RootController.swift in Sources */,
+				14B724FE1B97AA6C008F89F7 /* CardStackController.swift in Sources */,
 				142A42281B2312B600AFE37D /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		146D72A81AB782920058798C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A139B41AEFC72B00AD732F /* Tests.swift in Sources */,
+				14B725021B97AA8E008F89F7 /* CardStackCell.swift in Sources */,
+				14B725001B97AA86008F89F7 /* CardStackLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,41 +304,6 @@
 			};
 			name = Release;
 		};
-		146D72BA1AB782920058798C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Tests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		146D72BB1AB782920058798C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Tests-Bridging-Header.h";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -403,21 +314,13 @@
 				142A423B1B2312B600AFE37D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		146D728E1AB782920058798C /* Build configuration list for PBXProject "Pod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				146D72B41AB782920058798C /* Debug */,
 				146D72B51AB782920058798C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		146D72B91AB782920058798C /* Build configuration list for PBXNativeTarget "Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				146D72BA1AB782920058798C /* Debug */,
-				146D72BB1AB782920058798C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
