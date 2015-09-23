@@ -17,18 +17,18 @@ class CardStackLayout: UICollectionViewLayout {
         return self.collectionView!.bounds.size
     }
 
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attributes = [UICollectionViewLayoutAttributes]()
         let visibleIndexPaths = self.indexPathsOfItemsInRect(rect)
         for indexPath in visibleIndexPaths {
             let attribute = self.layoutAttributesForItemAtIndexPath(indexPath)
-            attributes.append(attribute)
+            attributes.append(attribute!)
         }
 
         return attributes
     }
 
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
         self.applyLayoutAttributes(attributes)
 
