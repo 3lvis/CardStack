@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "CardStack"
   s.summary          = "Recreating Apple's passbook"
-  s.summary          = "A super basic clone of Passbook's card UI using UICollectionView, it features a custom collection view layout for your reusability or learning use."
+  s.description      = "A super basic clone of Passbook's card UI using UICollectionView, it features a custom collection view layout for your reusability or learning use."
   s.version          = "0.2.0"
   s.homepage         = "https://github.com/3lvis/CardStack"
   s.license          = 'MIT'
