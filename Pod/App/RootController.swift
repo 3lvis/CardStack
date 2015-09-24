@@ -10,11 +10,11 @@ class RootController: CardStackController, CardStackControllerDataSource, CardSt
         self.delegate = self
         self.view.backgroundColor = UIColor.greenColor()
 
-        cards.append(CardStackController.CardState.Normal.rawValue)
-        cards.append(CardStackController.CardState.Normal.rawValue)
-        cards.append(CardStackController.CardState.Normal.rawValue)
-        cards.append(CardStackController.CardState.Normal.rawValue)
-        cards.append(CardStackController.CardState.Normal.rawValue)
+        cards.append(CardState.Normal.rawValue)
+        cards.append(CardState.Normal.rawValue)
+        cards.append(CardState.Normal.rawValue)
+        cards.append(CardState.Normal.rawValue)
+        cards.append(CardState.Normal.rawValue)
     }
 
     // MARK: CardStackControllerDataSource

@@ -40,11 +40,11 @@ class CardStackLayout: UICollectionViewLayout {
     func applyLayoutAttributes(attributes: UICollectionViewLayoutAttributes) {
         let cardState = self.dataSource!.cardStateAtIndexPath(attributes.indexPath)
         switch cardState {
-        case 0:
+        case CardState.Normal.rawValue:
             attributes.frame = self.computedFrame(attributes.indexPath, offset: attributes.indexPath.row, height: self.actualCellHeight)
-        case 1:
+        case CardState.Selected.rawValue:
             attributes.frame = self.computedFrame(attributes.indexPath, offset: 0, height: self.actualCellHeight)
-        case 2:
+        case CardState.Collapsed.rawValue:
             self.applyCollapsedAttributes(attributes)
         default:
             break

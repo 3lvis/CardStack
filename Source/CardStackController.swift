@@ -9,23 +9,24 @@ protocol CardStackControllerDelegate: class {
     func cardStackControllerDidSelectItemAtIndexPath(cardStackController: CardStackController, indexPath: NSIndexPath)
 }
 
-class CardStackController: UICollectionViewController, CardStackCellDelegate, CardStackLayoutDataSource {
-    enum CardState: Int {
-        case Normal = 0
-        case Selected = 1
-        case Collapsed = 2
-    }
+enum CardState: Int {
+    case Normal = 0
+    case Selected = 1
+    case Collapsed = 2
+}
 
+class CardStackController: UICollectionViewController, CardStackCellDelegate, CardStackLayoutDataSource {
     weak var dataSource: CardStackControllerDataSource? = nil
     weak var delegate: CardStackControllerDelegate? = nil
 
     init(layout: CardStackLayout) {
         super.init(collectionViewLayout: layout)
+
         layout.dataSource = self
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("Storyboards is not supported in this version, please feel free to contribute if this is something you need.")
     }
 
     override func viewDidLoad() {
@@ -37,11 +38,7 @@ class CardStackController: UICollectionViewController, CardStackCellDelegate, Ca
     // MARK: UICollectionViewDataSource
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let objects = self.dataSource?.objects() {
-            return objects.count
-        }
-
-        return 0
+        return self.dataSource?.objects().count ?? 0
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -56,31 +53,28 @@ class CardStackController: UICollectionViewController, CardStackCellDelegate, Ca
 
     func expandRows() {
         let count = self.dataSource!.objects().count
-        var cards = self.dataSource?.objects()
+        var cards = [Int]()
 
         for index in 0..<count {
-            cards?.removeAtIndex(index)
-            cards?.insert(CardStackController.CardState.Normal.rawValue, atIndex: index)
+            cards.insert(CardState.Normal.rawValue, atIndex: index)
         }
 
-        self.dataSource?.updateObjects(cards!)
+        self.dataSource!.updateObjects(cards)
     }
 
     func collapseRows(selectedRow: Int) {
         let count = self.dataSource!.objects().count
-        var cards = self.dataSource?.objects()
+        var cards = [Int]()
 
         for index in 0..<count {
-            cards?.removeAtIndex(index)
-
             if index == selectedRow {
-                cards?.insert(CardStackController.CardState.Selected.rawValue, atIndex: index)
+                cards.insert(CardState.Selected.rawValue, atIndex: index)
             } else {
-                cards?.insert(CardStackController.CardState.Collapsed.rawValue, atIndex: index)
+                cards.insert(CardState.Collapsed.rawValue, atIndex: index)
             }
         }
 
-        self.dataSource?.updateObjects(cards!)
+        self.dataSource!.updateObjects(cards)
     }
 
     func cellDidPanAtIndexPath(cell: CardStackCell, indexPath: NSIndexPath?) {
@@ -94,7 +88,7 @@ class CardStackController: UICollectionViewController, CardStackCellDelegate, Ca
     }
 
     func animateSelectionAtIndexPath(indexPath: NSIndexPath) {
-        self.collectionView?.performBatchUpdates({ () -> Void in
+        self.collectionView?.performBatchUpdates({
             self.selectCardAtIndexPath(indexPath)
             }, completion: { finished in
                 let layout = self.collectionView?.collectionViewLayout
@@ -105,9 +99,9 @@ class CardStackController: UICollectionViewController, CardStackCellDelegate, Ca
     func selectCardAtIndexPath(indexPath: NSIndexPath) {
         let state = self.cardStateAtIndexPath(indexPath)
         switch state {
-        case 0:
+        case CardState.Normal.rawValue:
             self.collapseRows(indexPath.row)
-        case 1, 2:
+        case CardState.Selected.rawValue, CardState.Collapsed.rawValue:
             self.expandRows()
         default: break
         }
