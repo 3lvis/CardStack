@@ -24,8 +24,18 @@ class RootController: CardStackController, CardStackControllerDataSource, CardSt
         return cards
     }
 
+    func updateObjects(newCards: [Int]) {
+        self.cards = newCards
+    }
+
     func clearObjects() {
         cards.removeAll(keepCapacity: false)
+
+        cards.append(CardStackController.CardState.Normal.rawValue)
+        cards.append(CardStackController.CardState.Normal.rawValue)
+        cards.append(CardStackController.CardState.Normal.rawValue)
+        cards.append(CardStackController.CardState.Normal.rawValue)
+        cards.append(CardStackController.CardState.Normal.rawValue)
     }
 
     // MARK: CardStackControllerDelegate

@@ -2,6 +2,7 @@ import UIKit
 
 protocol CardStackControllerDataSource: class {
     func objects() -> [Int]
+    func updateObjects(newCards: [Int])
     func clearObjects()
 }
 
@@ -71,6 +72,8 @@ class CardStackController: UICollectionViewController, CardStackCellDelegate, Ca
                 cards?.insert(CardStackController.CardState.Collapsed.rawValue, atIndex: index)
             }
         }
+
+        self.dataSource?.updateObjects(cards!)
     }
 
     func cellDidPanAtIndexPath(cell: CardStackCell, indexPath: NSIndexPath?) {
@@ -84,12 +87,12 @@ class CardStackController: UICollectionViewController, CardStackCellDelegate, Ca
     }
 
     func animateSelectionAtIndexPath(indexPath: NSIndexPath) {
-        self.collectionView?.performBatchUpdates({
+        self.collectionView?.performBatchUpdates({ () -> Void in
             self.selectCardAtIndexPath(indexPath)
-        }, completion: nil)
-
-        let layout = self.collectionView?.collectionViewLayout
-        layout?.invalidateLayout()
+            }, completion: { finished in
+                let layout = self.collectionView?.collectionViewLayout
+                layout?.invalidateLayout()
+        })
     }
 
     func selectCardAtIndexPath(indexPath: NSIndexPath) {
