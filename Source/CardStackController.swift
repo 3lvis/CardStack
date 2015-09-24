@@ -3,7 +3,6 @@ import UIKit
 protocol CardStackControllerDataSource: class {
     func objects() -> [Int]
     func updateObjects(newCards: [Int])
-    func clearObjects()
 }
 
 protocol CardStackControllerDelegate: class {
@@ -56,7 +55,15 @@ class CardStackController: UICollectionViewController, CardStackCellDelegate, Ca
     // MARK: CardStackCellDelegate
 
     func expandRows() {
-        self.dataSource?.clearObjects()
+        let count = self.dataSource!.objects().count
+        var cards = self.dataSource?.objects()
+
+        for index in 0..<count {
+            cards?.removeAtIndex(index)
+            cards?.insert(CardStackController.CardState.Normal.rawValue, atIndex: index)
+        }
+
+        self.dataSource?.updateObjects(cards!)
     }
 
     func collapseRows(selectedRow: Int) {

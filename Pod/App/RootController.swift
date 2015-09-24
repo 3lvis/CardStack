@@ -17,7 +17,6 @@ class RootController: CardStackController, CardStackControllerDataSource, CardSt
         cards.append(CardStackController.CardState.Normal.rawValue)
     }
 
-
     // MARK: CardStackControllerDataSource
 
     func objects() -> [Int] {
@@ -26,16 +25,6 @@ class RootController: CardStackController, CardStackControllerDataSource, CardSt
 
     func updateObjects(newCards: [Int]) {
         self.cards = newCards
-    }
-
-    func clearObjects() {
-        cards.removeAll(keepCapacity: false)
-
-        cards.append(CardStackController.CardState.Normal.rawValue)
-        cards.append(CardStackController.CardState.Normal.rawValue)
-        cards.append(CardStackController.CardState.Normal.rawValue)
-        cards.append(CardStackController.CardState.Normal.rawValue)
-        cards.append(CardStackController.CardState.Normal.rawValue)
     }
 
     // MARK: CardStackControllerDelegate
